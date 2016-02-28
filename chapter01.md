@@ -59,11 +59,11 @@ kicad中元器件的管理思路是：
 
 我们既可以按照原理图进行设计，也可以按照封装设计，不过后者的美观性就差很多了（但是便于与实物对应）
 
-在Analog的官方网页中，参考电路是这样设计的
+在Analog的官方网页中，参考电路是这样设计的：
 
 ![an1214](figs/an1214.gif)
 
-当然根据对于管脚的理解，将`FB`放在右边也是可以的，参见德国网友的设计
+当然根据对于管脚的理解，将`FB`放在右边也是可以的，参见德国网友的设计：
 
 ![DDS-AD5930-AD8130](figs/DDS-AD5930-AD8130-Rekonstruktionsfilter_hoal.png)
 
@@ -85,4 +85,10 @@ kicad中元器件的管理思路是：
 
 ### 1.4.2 自动生成大批量管脚的元器件
 
-在我们设计`microzed`的载板时，可能会用到。
+在我们设计`microzed`的载板时，可能会用到。打开`quicklib`网页，填写相关信息即可。
+
+[Quick KICAD Library Component Builder](http://kicad.rohrbacher.net/quicklib.php)
+
+**提示**：他的网站还有一个`quickmod`网页，可以方便的制作`footprint`
+
+[Quick KICAD Module Builder](http://kicad.rohrbacher.net/quickmod.php)
