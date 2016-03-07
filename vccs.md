@@ -62,4 +62,19 @@ Apex的文档指出，反馈支路的电阻需要调节匹配以便实现最佳�
 
 ### 2、ac coupling circuit
 
+就是交流耦合输出。AD8130电流源的本质就是上图，自行分析。
+
+> the AD8130's relatively high input bias current can affect output-current accuracy at low current levels.
+
+ - 使用单位增益反馈放大器隔离输出和输入
+ - 使用交流耦合输出的电路，可以使用`dc servo loop`来稳定（stabilize）电路的`operating point`。也就是创建直流流出电路（若都用AC耦合，则直流无法流出）
+
 ### 3、dc stabilization circuit
+
+DC工作点稳定电路，其功能就是在AC耦合输出或者没有DC流出支路的情况下，创建反馈电路，保证放大器稳定工作。另外一种说法是为了在较小电流输出时能有精确的控制能力。
+
+发现大学期间学习的Laplace变换用于电路分析还是很有用的嘛。
+
+### 4、补偿电路
+
+在Tucker等人的文献中，也叫作`lead lag`补偿电路。在标准设计中，仅包含一个3到20pF的补偿电容`Ccomp`，用以补偿杂散电容的影响。
