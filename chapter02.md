@@ -19,3 +19,19 @@
  2. 灵活的使用`label`和文字注释，慢慢熟练掌握快捷键
 
 **下一章提要：**我们要修改`kicad`导出的网表文件，利用`ngspice`或者其`python`版本`ngspyce`进行仿真。参考教程在这里：[Simulating KiCad Schematics in Spice](http://stffrdhrn.github.io/electronics/2015/04/28/simulating_kicad_schematics_in_spice.html)
+
+## 2.2 多层电路原理图
+
+我们可以使用Kicad的hierachy设计规模较大的原理图。
+
+顶层电路图叫“主电路图”，顶层电路图中的叫做“子电路模块”，点击每个子电路模块进去的称为“子电路原理图”。
+主要的功能有四个：
+
+ - place a hierachy label. 在子电路原理图中放置层次标签。这个标签不同于局部标签（label）以及全局标签（global），只能被子电路模块调用。
+ - create a hierachy sheet. 创建子电路原理图
+ - place a hierachy pin import from the corresponding hierachy sheet. 根据子电路原理图中已有的层次标签，将其置于主电路图中的子电路模块上。这样这些层次标签就变成了层次端口，能够被主模块调用以及互联。
+ - place a hierachy pin in the sheet. 在顶层中的子电路模块上，放置端口，可以是input或者output，放置端口的同时自动关联一个与端口同名的层次标签。
+
+一般的操作流程是，2、创建子电路原理图，1、在子电路原理图中绘制电路模块，并且命名层次标签，3、回到顶层，根据子电路原理图中的层次标签，导入其为端口。4、在第一步之前可以先在子电路模块上布置标签。
+
+2134是自底向上的设计思路，2413是自顶向下的设计思路。
