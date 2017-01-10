@@ -26,6 +26,8 @@ PG的输出一般都是增强型NMOSFET的Drain端口，因此需要外接上拉
 
 在Microzed的standalone模式中，板载复位由`PG_Module`确定。由于加入载板，POR则为`PG_Module`和`PG_Carrier`的或，只有当两者同时有效时，POR才会拉低停止复位。
 
+## 5. 完整启动顺序
+
 最终启动顺序可以用下图来表示
 
 ![启动顺序完整版](./figs/microzed-power-1.png)
