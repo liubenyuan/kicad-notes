@@ -17,6 +17,8 @@
  3. (split planes) Another possibility is with a true differential signal, where the signal flows down one trace and returns on the other trace.
  4. **Component placement and partitioning** are, therefore, critical to a good mixed-signal layout.
 
+另外需要注意的是ADC以及DAC的AGND以及DGND，这两个地只是说明内部地是如何连接的，在布局布线时，都应该连到模拟地上，因此必须与AGND解耦。最好的情形应该是数字电路单独放在一块板上，模拟电路放在另一块，这种独立的设计。
+
 ![Grounding of Mixed Signal PCBs](./figs/a-d.gif)
 
 来自 **E2V: Design Considerations for Mixed-Signal PCB Layout**
