@@ -12,4 +12,4 @@
 I experienced the same issue when I was doing a BGA fanout. I suspect the problem migth be with floating point dimensions comparison as when I decreased minimal clearance from 0.1 mm to 0.099 mm it went OK.
 ```
 
-**解决办法：**可能是由浮点判断错误导致的，在布局完毕后，将clearance减少一点，例如2.399，即可消除错误。
+**解决办法：**可能是由浮点判断错误导致的，在布局完毕后，将clearance减少一点，例如`2.399`，即可消除错误。

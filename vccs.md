@@ -6,17 +6,17 @@
 
 简单总结一下文献中的研究要点（Improved/Enhanced Howland Source）
 
- - Wang Yinan 研究了增强型Howland电流源，并研究了双运放的设计方法。器件：单运放使用`OPA843`，双运放使用`OPA843`与`OPA653`。其中`OPA653`只是用于GIC（General Impedance Converter）。
- - Tucker 等人研究了改进型Howland电流源，并提出在运放输入端短接RC补偿电路（Lead-Lag），初步估计在这一简单的电流源上，可以实现1MHz的3dB带宽。
+  - Wang Yinan 研究了增强型Howland电流源，并研究了双运放的设计方法。器件：单运放使用`OPA843`，双运放使用`OPA843`与`OPA653`。其中`OPA653`只是用于GIC（General Impedance Converter）。
+  - Tucker 等人研究了改进型Howland电流源，并提出在运放输入端短接RC补偿电路（Lead-Lag），初步估计在这一简单的电流源上，可以实现1MHz的3dB带宽。
 
 ## Howland电流源设计要点（Analog/TI/Apex）
 
 主要阅读：
 
- - AD的文档`CN0151.pdf`（最早的原型或设计思路可见 `SBOA046`）
- - AD的文档`CN0099.pdf`以及模拟对话 Difference Amplifier Forms Heart of Precision Current Source
- - TI的文档`AN-1515.pdf`
- - Apex的文档`AN13.pdf`
+  - AD的文档`CN0151.pdf`（最早的原型或设计思路可见 `SBOA046`）
+  - AD的文档`CN0099.pdf`以及模拟对话 Difference Amplifier Forms Heart of Precision Current Source
+  - TI的文档`AN-1515.pdf`
+  - Apex的文档`AN13.pdf`
 
 ### 1、Analog CN-0151
 
@@ -36,9 +36,9 @@
 
 文章中还提到，Howland型（前者）输出相对于MOSFET输出（后者）的优点、缺点分别是
 
- - 高输出阻抗（相对比而言，在低频段有高输出阻抗）
- - 提供双极性输出（Bipolar output current）
- - 缺点：Howland电路要求电阻一致、高精度匹配（可以用排阻），并且对PCB板设计的要求较高
+  - 高输出阻抗（相对比而言，在低频段有高输出阻抗）
+  - 提供双极性输出（Bipolar output current）
+  - 缺点：Howland电路要求电阻一致、高精度匹配（可以用排阻），并且对PCB板设计的要求较高
 
 ### 1、Analog CN-0099
 
@@ -68,10 +68,12 @@ AD8603运放的要求是漏电流极小。
 
 Apex的文档指出，反馈支路的电阻需要调节匹配以便实现最佳的电流源
 
-> The circuit of Figure 8 actually required a slight amount of mismatch
-> in the two (RF) resistors to compensate for mismatches elsewhere,
-> suggesting that the inclusion of a trimpot may be necessary
-> to obtain maximum performance.
+```quote
+The circuit of Figure 8 actually required a slight amount of mismatch
+in the two (RF) resistors to compensate for mismatches elsewhere,
+suggesting that the inclusion of a trimpot may be necessary
+to obtain maximum performance.
+```
 
 ### 3、TI AN-1515
 
@@ -108,10 +110,12 @@ Apex的文档指出，反馈支路的电阻需要调节匹配以便实现最佳�
 
 就是交流耦合输出。AD8130电流源的本质就是上图，自行分析。
 
-> the AD8130's relatively high input bias current can affect output-current accuracy at low current levels.
+```quote
+the AD8130's relatively high input bias current can affect output-current accuracy at low current levels.
+```
 
- - 使用单位增益反馈放大器隔离输出和输入
- - 使用交流耦合输出的电路，可以使用`dc servo loop`来稳定（stabilize）电路的`operating point`。也就是创建直流流出电路（若都用AC耦合，则直流无法流出）
+  - 使用单位增益反馈放大器隔离输出和输入
+  - 使用交流耦合输出的电路，可以使用`dc servo loop`来稳定（stabilize）电路的`operating point`。也就是创建直流流出电路（若都用AC耦合，则直流无法流出）
 
 ### 3、dc stabilization circuit
 

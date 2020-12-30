@@ -1,11 +1,11 @@
-# FPGA布局布线的设计、层设计、差分布线及阻抗匹配
+# 布局布线的设计、层设计、差分布线及阻抗匹配
 
 ## 1. PCB布局pitfalls汇总
 
- 1. 设计模块时，一定要考虑电源的注入方向
- 2. 设计外设时，一定要跟FPGA的bank相对应起来
- 3. 设计外设时，布局布线阶段一定要考虑接口的输入输出方向
- 4. 提前设计好规则，后面不要随意更改
+  1. 设计模块时，一定要考虑电源的注入方向
+  2. 设计外设时，一定要跟FPGA的bank相对应起来
+  3. 设计外设时，布局布线阶段一定要考虑接口的输入输出方向
+  4. 提前设计好规则，后面不要随意更改
 
 FPGA绘制电路板时，元器件的放置特别重要。合理的设计接口以及布置元器件，可以极大程度的减少PCB连线的困难。另外，原理图的设计需要阅读很多的Datasheet。
 
@@ -23,11 +23,11 @@ ensuring that all parameters are met and incorporated into the stackup.
 
 ![intel-8-layers.png](./figs/intel-8-layers.png)
 
- - Two external signal routing layers (microstrip)
- - Two internal signal routing layers (stripline)
- - Four internal layers which are dedicated for power and GND planes.
- - Soldermask on the outer layers
- - Core or Prepreg layers between each signal layer. Typically a prepreg layer will be used on the outer layers then it will alternate between prepreg and core material. Core material or cured fiberglass epoxy resin refers to a thin piece of dielectric with copper foil bonded to both sides. Prepreg material or uncured fiberglass epoxy resin will cure during the heating and press stage of fabrication.
+  - Two external signal routing layers (microstrip)
+  - Two internal signal routing layers (stripline)
+  - Four internal layers which are dedicated for power and GND planes.
+  - Soldermask on the outer layers
+  - Core or Prepreg layers between each signal layer. Typically a prepreg layer will be used on the outer layers then it will alternate between prepreg and core material. Core material or cured fiberglass epoxy resin refers to a thin piece of dielectric with copper foil bonded to both sides. Prepreg material or uncured fiberglass epoxy resin will cure during the heating and press stage of fabrication.
 
 Depending on the design, the material selection, dielectric thickness and copper weight will have a significant impact on the trace widths and spacing needed for proper controlled impedance values.
 
@@ -55,8 +55,8 @@ Depending on the design, the material selection, dielectric thickness and copper
 
 有关参考平面的解释，可以看 **What is Actually Happening when a High Speed Switching Signal is Sent Down a Trace**。写的很不错，有几个观点（重要）：
 
- 1. 参考平面的电流“回流”，仅仅是因为传输线传输信号时，产生电磁感应导致的感应回流电流（The Electro-Magnetic force will create current flow with in a conductor），不需要“回流”也能工作（The Electro-Magnetic force does NOT need a ‘Return’ circuit to work.）
- 2. Running a trace over a break in a plane? In a word: Don’t!
+  1. 参考平面的电流“回流”，仅仅是因为传输线传输信号时，产生电磁感应导致的感应回流电流（The Electro-Magnetic force will create current flow with in a conductor），不需要“回流”也能工作（The Electro-Magnetic force does NOT need a ‘Return’ circuit to work.）
+  2. Running a trace over a break in a plane? In a word: Don’t!
 
 ### 2.4 传输线的回流解耦
 
@@ -109,4 +109,3 @@ This means that if a signal moves from Layer 1 to Layer 4 you want to have the r
 **例如、**典型的4层板是（1）LVDS/高速信号、（2）地、（3）电源、（4）TTL信号，使用FR-4，1.6mm时，典型（嘉立创）的设置是0.2mm preprep，1.2mm Center dialetric，0.2mm preprep。若进行阻抗匹配，例如50欧布线时，可以考虑使用5mil或者6mil的preprep。当需要考虑EMI时，可以使用（1）GND、（2）Signal/PWR、（3）Signal/PWR、（4）GND这样的设计。好处是便于进行阻抗匹配，并且（Faraday Cage）进行屏蔽。坏处是电源和地之间距离太近。
 
 **阻抗匹配、**可以使用Saturn的工具进行计算。外层的是Microstrip，内部的是Stripline。
-

@@ -12,5 +12,7 @@
 
 ![BQ25570_Harvester.svg](figs/BQ25570_Harvester.png)
 
-![bq25570_harvester_top.png](figs/bq25570_harvester_top.png) ![bq25570_harvester_bot.png](figs/bq25570_harvester_bot.png)
+![bq25570_harvester_top.png](figs/bq25570_harvester_top.png)
+
+![bq25570_harvester_bot.png](figs/bq25570_harvester_bot.png)
 

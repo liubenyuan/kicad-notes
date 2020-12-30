@@ -8,19 +8,19 @@
 
 ![rj45-with-integrated-magnetic](./figs/rj45-with-integrated-magnetic.png)
 
- 1. 信号必须用100R(10%)阻抗匹配的差分布线。D1一般为6.8mil，差分对的skew必须小于50mil(1.25mm)
- 2. 两对差分线之间的距离差异必须小于700mil(18mm)
- 3. 尽量不使用Vias。如果必须使用vias，vias也必须匹配（**how？**）
- 4. D2距离必须大于100mil（2.5mm），避免干扰
- 5. RJ45接口极其磁下面不能布置电源平面或地平面
- 6. L1的距离必须尽可能短，不要超过4inch（100mm）
+  1. 信号必须用100R(10%)阻抗匹配的差分布线。D1一般为6.8mil，差分对的skew必须小于50mil(1.25mm)
+  2. 两对差分线之间的距离差异必须小于700mil(18mm)
+  3. 尽量不使用Vias。如果必须使用vias，vias也必须匹配（**how？**）
+  4. D2距离必须大于100mil（2.5mm），避免干扰
+  5. RJ45接口极其磁下面不能布置电源平面或地平面
+  6. L1的距离必须尽可能短，不要超过4inch（100mm）
 
 除此以外，我们也参考下Microchip的设计原则，来自 [LAN7500/LAN7500i Layout Guidelines](http://ww1.microchip.com/downloads/en/AppNotes/en562767.pdf)
 
- 7. 可以在差分对之间插入地平面以及vias，进行隔离。
- 8. 使用带金属外壳（shield）的RJ45接口，外壳接入外壳地。
- 9. 为了提升ESD性能，可以a、使用不包含LED的RJ45接口，b、使用表贴RJ45。
- 10. 对chasis ground进行隔离以及利用Ferrite Bead单点接地。
+  7. 可以在差分对之间插入地平面以及vias，进行隔离。
+  8. 使用带金属外壳（shield）的RJ45接口，外壳接入外壳地。
+  9. 为了提升ESD性能，可以a、使用不包含LED的RJ45接口，b、使用表贴RJ45。
+  10. 对chasis ground进行隔离以及利用Ferrite Bead单点接地。
 
 ![rj45-chip-to-magnetic](./figs/rj45-chip-to-magnetic.png)
 
@@ -80,13 +80,13 @@ First when the LVDS signals drive cable, it requires shielded cable, use CAT5, 5
 看TI的文档
 [Performance of LVDS With Different Cables](http://www.ti.com/lit/an/slyt163/slyt163.pdf)
 
- - LVDS, as standardized in TIA/EIA-644, specifies a theoretical maximum signaling rate of 1.923 Gbps.
- - TIA/EIA-644 LVDS specifies the use of 90-Ω to 132-Ω transmission lines (although other values may also be used in nonstandard applications).
- - Use shield/unshield CAT5, CAT5+, CAT6 cables.
- - The dc resistance of the cable should not exceed 9.38 Ω/100 m.
- - The mutual capacitance is limited to a maximum of 5.6 nF/100 m.
- - Termination is used at the end of a transmission line to minimize reflections back into the line, and when using LVDS with its high switching speed, termination is mandatory.
- - For this report, a 100 Ω differential termination across the inputs of the LVDS receiver is used.
+  - LVDS, as standardized in TIA/EIA-644, specifies a theoretical maximum signaling rate of 1.923 Gbps.
+  - TIA/EIA-644 LVDS specifies the use of 90-Ω to 132-Ω transmission lines (although other values may also be used in nonstandard applications).
+  - Use shield/unshield CAT5, CAT5+, CAT6 cables.
+  - The dc resistance of the cable should not exceed 9.38 Ω/100 m.
+  - The mutual capacitance is limited to a maximum of 5.6 nF/100 m.
+  - Termination is used at the end of a transmission line to minimize reflections back into the line, and when using LVDS with its high switching speed, termination is mandatory.
+  - For this report, a 100 Ω differential termination across the inputs of the LVDS receiver is used.
 
 ![lvds-p2p](./figs/lvds-p2p.png)
 
